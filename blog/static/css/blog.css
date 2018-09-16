@@ -44,3 +44,13 @@ h1, h2, h3, h4 {
     color: #000000;
 }
 
+.add_post a{
+    color: #000000;
+    font-family: 'Lobster', cursive; 
+    font-size: 18pt;
+}
+.add_post{
+    float:right;
+}
+
+

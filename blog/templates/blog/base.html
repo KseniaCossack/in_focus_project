@@ -3,9 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>{% block title %}Django Boards{% endblock %}</title>
-
+ 
     <link href="https://fonts.googleapis.com/css?family=Peralta" rel="stylesheet">
-    
     <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
@@ -14,12 +13,15 @@
   <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
             <div class="page-header">
-                <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
                 <h1><a href="/">In Focus's Blog</a></h1>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
+                <div class="nav pull-right">
+                    <button class="navbar-toggler" type="newbutton" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
             </div>
+
+
             <div class="collapse navbar-collapse" id="mainMenu">
                 {% if user.is_authenticated %}
                     <ul class="navbar-nav ml-auto">
@@ -42,7 +44,11 @@
                   </form>
                 {% endif %}
             </div>
+            
     </nav>
+    
+
+    
     {% block body %}  <!-- HERE -->
 
       <div class="container">
@@ -51,6 +57,7 @@
           {% endblock %}
           <div class="col-md-8">
             {% block content %}
+        
             {% endblock %}
           </div>
         </div>
