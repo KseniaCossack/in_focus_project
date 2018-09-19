@@ -14,4 +14,8 @@ def signup(request):
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
 
+def my_account(request):
+    return render(request, 'my_account.html')
+
+
 # Create your views here.

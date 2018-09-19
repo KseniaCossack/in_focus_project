@@ -46,7 +46,8 @@ def post_edit(request, pk):
             )
             return redirect('post_detail', pk=post.pk)
     else:
-        form = PostForm()
-    return render(request, 'blog/post_edit.html', {'post':post, 'form': form})
+        form = PostForm(instance=post)
+    return render(request, 'blog/post_edit.html', {'form': form})
+
 
 # Create your views here.
