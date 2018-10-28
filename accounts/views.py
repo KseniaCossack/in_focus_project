@@ -1,7 +1,9 @@
 from django.contrib.auth import login as auth_login
-from django.shortcuts import render, redirect
-
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.models import User
 from .forms import SignUpForm
+from django.contrib.auth.decorators import login_required
+
 
 def signup(request):
     if request.method == 'POST':
@@ -14,8 +16,9 @@ def signup(request):
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
 
-def my_account(request):
+@login_required
+def my_account(request, username):
+    user = get_object_or_404(User, username=username)
     return render(request, 'my_account.html')
-
 
 # Create your views here.

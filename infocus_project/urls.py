@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-
+from .settings import ROOT_URL
+from django.conf.urls.defaults import *
 from django.contrib.auth import views as auth_views
 from accounts import views as accounts_views
 from boards import views
@@ -27,7 +28,7 @@ urlpatterns = [
     url(r'^signup/$', accounts_views.signup, name='signup'),
     url(r'^login/$', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     url(r'^logout/$', auth_views.LogoutView.as_view(), name='logout'),
-    url(r'^my_account/$', accounts_views.my_account, name='my_account'),
+    url(r'^(?P<username>[^/]+)/$', accounts_views.my_account, name='my_account'),
 
 
 

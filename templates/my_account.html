@@ -2,5 +2,12 @@
 
 
 {% block content %}
+    <div class="media" style="margin-bottom: 20px;">
+      <div class="media-left">
+        <a href="/">
+          <img class="media-object img-circle" src="{{ page_user.profile.get_picture }}" alt="{{ page_user.profile.get_screen_name }}" style="width: 100px; height: 100px;">
+        </a>
+      </div>
+    </div>
 
 {% endblock %}
